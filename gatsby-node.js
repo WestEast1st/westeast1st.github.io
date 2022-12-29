@@ -9,6 +9,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
 const blogPost = path.resolve(`./src/templates/blog-post.js`)
+const tagPage = path.resolve(`./src/templates/tag.js`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -19,12 +20,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
         nodes {
           id
           fields {
             slug
           }
+          frontmatter {
+              tags
+          }
+        }
+      }
+      tagsGroup: allMarkdownRemark(limit: 1000) {
+        group(field: {frontmatter: {tags: SELECT}}){
+          fieldValue
         }
       }
     }
@@ -60,6 +69,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+  const tags = result.data.tagsGroup.group
+  
+  tags.forEach((tag) => {
+    createPage({
+      path: `/tags/${tag.fieldValue}/`,
+      component: tagPage,
+      context: {
+        tag: tag.fieldValue,
+      },
+    })
+  })
 }
 
 /**

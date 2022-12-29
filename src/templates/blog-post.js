@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import TableOfContents from "../components/tableOfContents"
+import Share from "../components/share"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -20,14 +22,23 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <p>投稿: {post.frontmatter.createDate}</p>
+          <p>Tags: {post.frontmatter.tags.map(tag => {
+            return (<Link className="taglink" key={tag} to={`/tags/${tag}`}>{tag}</Link>)
+          })}</p>
         </header>
+        <TableOfContents html={post.tableOfContents} />
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         <hr />
         <footer>
+          <Share 
+            title={post.frontmatter.title}
+            url={`${location.origin}${post.fields.slug}`}
+            description={`${post.excerpt.slice(0, 70)}…`}
+           />
           <Bio />
         </footer>
       </article>
@@ -84,13 +95,20 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(id: { eq: $id }) {
+      fields {
+        slug
+      }
       id
       excerpt(pruneLength: 160)
       html
+      tableOfContents(
+        absolute: false
+      )
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        createDate(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

@@ -245,7 +245,7 @@ a:focus {
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
-  margin-bottom: var(--spacing-20);
+  margin-bottom: var(--spacing-6);
 }
 
 .global-header {
@@ -327,5 +327,44 @@ a:focus {
   ul,
   ol {
     list-style-position: inside;
+  }
+}
+
+.taglink {
+  margin-right: var(--spacing-2);
+  background-color: #dceaff;
+  font-weight: bold;
+  color: #1a202c;
+  text-decoration:none;
+}
+
+.toc li{
+  margin-bottom: var(--spacing-1);
+}
+.toc p{
+  margin-bottom: var(--spacing-1);
+}
+.toc ul{
+  margin-top: var(--spacing-1);
+}
+
+.share {
+  text-align: center;
+
+  &__title {
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 0.25em;
+  }
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+
+  &__icon:not(:last-child) {
+      margin-right: 1em;
   }
 }

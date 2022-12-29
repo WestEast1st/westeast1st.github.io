@@ -48,6 +48,19 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              ordered: false,
+              fromHeading: 1,
+              toHeading: 6,
+              className: "table-of-contents",
+            },
+          },
+
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -128,6 +141,15 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/profile-pic.jpeg`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["G-NT6FRG6TMS"],  // 控えておいた、測定IDを記載します。
+        pluginConfig: {
+          head: true  // headタグに記載されるようにコンフィグを設定します。
+        }
+      }
     },
   ],
 }
