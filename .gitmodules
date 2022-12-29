@@ -1,3 +1,6 @@
 [submodule "content/blog"]
 	path = content/blog
 	url = https://github.com/a-zara-n/Blog-POST.git
+[submodule "content/about"]
+	path = content/about
+	url = https://github.com/a-zara-n/a-zara-n.git
