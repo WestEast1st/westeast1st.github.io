@@ -97,7 +97,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       limit: 2000
-      sort: {frontmatter: {date: ASC}}
+      sort: {frontmatter: {createDate: DESC}}
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
