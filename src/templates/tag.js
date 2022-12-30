@@ -35,11 +35,14 @@ const TagPosts = ({ pageContext, data }) => {
                         itemType="http://schema.org/Article"
                     >
                         <header>
+                        <small>{node.frontmatter.createDate}</small>
                         <h2>
                             <Link to={slug} itemProp="url">
                             <span itemProp="headline">📝 {title}</span>
                             </Link>
                         </h2>
+                        <small>tags: {node.frontmatter.tags.map((tag) => {return (<Link key={tag} to={`/tags/${tag}`} className="taglink">🏷️ {tag}</Link>)})}</small>
+
                         </header>
                         <section>
                         <p
@@ -53,7 +56,7 @@ const TagPosts = ({ pageContext, data }) => {
                     </li>
                 )
             })}
-            <Link to="/">TopPage</Link> / <Link to="/tags">Tags</Link>
+            <Link className="blog-link" to="/">📝 TopPage</Link> / <Link className="blog-link" to="/tags">🏷️ Tags</Link>
         </ol>
       </article>
     </Layout>
@@ -104,7 +107,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            createDate(formatString: "MMMM DD, YYYY")
             title
+            tags
           }
           excerpt
         }

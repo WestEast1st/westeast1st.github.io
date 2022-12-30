@@ -25,7 +25,6 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
       <Tags />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -40,12 +39,13 @@ const BlogIndex = ({ data, location }) => {
                 itemType="http://schema.org/Article"
               >
                 <header>
+                  <small>{post.frontmatter.createDate}</small>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">📝 {title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small>tags: {post.frontmatter.tags.map((tag) => {return (<Link className="taglink" key={tag} to={`/tags/${tag}`} >🏷️ {tag}</Link>)})}</small>
                 </header>
                 <section>
                   <p
@@ -89,7 +89,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          createDate(formatString: "MMMM DD, YYYY")
           title
           tags
           description

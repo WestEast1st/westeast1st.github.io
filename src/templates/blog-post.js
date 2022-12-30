@@ -22,18 +22,23 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">📝 {post.frontmatter.title}</h1>
-          <p>投稿📆: {post.frontmatter.createDate} / 更新📆: {post.frontmatter.updateDate || post.frontmatter.createDate}</p>
-          <p>Tags: {post.frontmatter.tags.map(tag => {
+          <small>投稿: {post.frontmatter.createDate} / 更新: {post.frontmatter.updateDate || post.frontmatter.createDate}</small><br/>
+          <small>Tags: {post.frontmatter.tags.map(tag => {
             return (<Link className="taglink" key={tag} to={`/tags/${tag}`}>🏷️ {tag}</Link>)
-          })}</p>
+          })}</small>
         </header>
-        <TableOfContents html={post.tableOfContents} />
+        <TableOfContents 
+          html={post.tableOfContents} 
+        />
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         <hr />
         <footer>
+          <small>Tags: {post.frontmatter.tags.map(tag => {
+            return (<Link className="taglink" key={tag} to={`/tags/${tag}`}>🏷️ {tag}</Link>)
+          })}</small>
           <Share 
             title={post.frontmatter.title}
             url={`${location.origin}${post.fields.slug}`}
@@ -54,15 +59,15 @@ const BlogPostTemplate = ({
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+              <Link className="prev-link" to={previous.fields.slug} rel="prev">
+                ⬅️ {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+              <Link className="next-link" to={next.fields.slug} rel="next">
+                {next.frontmatter.title} ➡️
               </Link>
             )}
           </li>

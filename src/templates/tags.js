@@ -39,7 +39,7 @@ const Tags = ({ pageContext, data }) => {
                 </article>
                 </li>)
             })}
-            <Link to="/">TopPage</Link>
+            <Link className="blog-link" to="/">📝 TopPage</Link>
         </ol>
       </article>
     </Layout>

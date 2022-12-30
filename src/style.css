@@ -368,3 +368,41 @@ a:focus {
       margin-right: 1em;
   }
 }
+
+.blog-tag-small{
+  padding: 0 var(--spacing-1) 0 var(--spacing-1);
+}
+
+.title-avatar{
+  margin-left: var(--spacing-4);
+  margin-bottom: var(--spacing-0);
+  min-width: 50px;
+  border-radius: 100%;
+}
+
+.blog-link{
+  color: #1a202c;
+  text-decoration:none;
+  font-weight: bold;
+  background-color: #dceaff;
+}
+
+.next-link{
+  color: #1a202c;
+  text-decoration:none;
+  font-weight: bold;
+  font-size: var(--fontSize-2);
+  background-color: #dceaff;
+}
+.prev-link{
+  color: #1a202c;
+  text-decoration:none;
+  font-weight: bold;
+  font-size: var(--fontSize-2);
+  background-color: #dceaff;
+}
+
+.header-link{
+  color: #1a202c;
+  font-weight: bold;
+}
