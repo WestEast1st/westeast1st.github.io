@@ -28,7 +28,7 @@ const Seo = ({ description, title, children }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const ogImage = "/images/profile-pic.jpeg"
+  const ogImage = "../images/profile-pic.jpeg"
 
   return (
     <>

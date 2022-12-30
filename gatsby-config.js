@@ -16,7 +16,7 @@ module.exports = {
       summary: `Japanese Security Engineer`,
     },
     description: `Azaraのブログ`,
-    siteUrl: `https://misc.azara,jp/`,
+    siteUrl: `https://misc.azara.jp/`,
     social: {
       twitter: `a_zara_n`,
     },
