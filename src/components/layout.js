@@ -34,9 +34,10 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
+        © 2022 misc.azara.jp All Rights Reserved. | 
         © {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <a href="https://www.gatsbyjs.com">Gatsby</a> | <b><Link to="/privacy">プライバシーポリシー</Link></b>
       </footer>
     </div>
   )

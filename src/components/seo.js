@@ -36,7 +36,7 @@ const Seo = ({ description, title, children }) => {
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content={`${site.siteMetadata.siteUrl}${ogImage}`} />
+      <meta property="og:image" content={`${site.siteMetadata.siteUrl}/${ogImage}`} />
       <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary" />

@@ -11,6 +11,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const blogPost = path.resolve(`./src/templates/blog-post.js`)
 const TagPosts = path.resolve(`./src/templates/tag.js`)
 const Tags = path.resolve(`./src/templates/tags.js`)
+const Privacy = path.resolve(`./src/templates/privacy.js`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -85,6 +86,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const tags = createPage({
     path: `/tags/`,
     component: Tags,
+    context: {}
+  })
+  const privacy = createPage({
+    path: `/privacy/`,
+    component: Privacy,
     context: {}
   })
 }

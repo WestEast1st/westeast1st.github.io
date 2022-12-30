@@ -406,3 +406,7 @@ a:focus {
   color: #1a202c;
   font-weight: bold;
 }
+
+.privacy-policy p {
+  margin-bottom: var(--fontSize-1);
+}
