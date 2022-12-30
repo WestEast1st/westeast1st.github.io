@@ -410,3 +410,9 @@ a:focus {
 .privacy-policy p {
   margin-bottom: var(--fontSize-1);
 }
+
+.tool-icon {
+  margin-right: var(--spacing-1);
+  margin-bottom: var(--spacing-0);
+  width: 20px;
+}

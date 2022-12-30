@@ -101,9 +101,11 @@ module.exports = {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
+                  createDate: node.frontmatter.createDate,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
+                  link: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
+                  author: node.frontmatter.author,
                 })
               })
             },
@@ -116,8 +118,12 @@ module.exports = {
                     slug
                   }
                   frontmatter {
+                    createDate(formatString: "MMMM DD, YYYY")
+                    date(formatString: "MMMM DD, YYYY")
+                    author
                     title
-                    date
+                    tags
+                    description
                   }
                 }
               }

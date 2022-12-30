@@ -6,6 +6,34 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
+
+  const twitterIcon = (<StaticImage
+    className="tool-icon"
+    formats={["auto", "webp", "avif"]}
+    src="../images/twitter.png"
+    alt="Profile picture"
+  />)
+
+  const githubIcon = (<StaticImage
+    className="tool-icon"
+    formats={["auto", "webp", "avif"]}
+    src="../images/github.png"
+    alt="Profile picture"
+  />)
+
+  const hacktheboxIcon = (<StaticImage
+    className="tool-icon"
+    formats={["auto", "webp", "avif"]}
+    src="../images/hackthebox.png"
+    alt="Profile picture"
+  />)
+
+  const rssIcon = (<StaticImage
+    className="tool-icon"
+    formats={["auto", "webp", "avif"]}
+    src="../images/rss.png"
+    alt="Profile picture"
+  />)
   header = (
     <div>
       <h1 className="main-heading">
@@ -19,12 +47,13 @@ const Layout = ({ location, title, children }) => {
         alt="Profile picture"
       /></Link>
       </h1>
-      <Link className="header-link" to="/">Posts</Link> / 
-      <Link className="header-link" to="/tags/">Tags</Link> / 
-      <Link className="header-link" to="/README/">About Me</Link> / 
-      <Link className="header-link" target="_blank" to="https://twitter.com/a_zara_n">Twitter</Link> / 
-      <Link className="header-link" target="_blank" to="https://github.com/a-zara-n">GitHub</Link> / 
-      <Link className="header-link" target="_blank" to="https://app.hackthebox.com/users/208274">HackTheBox</Link>
+      <Link className="header-link" to="/">📝 Posts</Link> / 
+      <Link className="header-link" to="/tags/">🏷️ Tags</Link> / 
+      <Link className="header-link" to="/README/">👤 About Me</Link> <br/>
+      <Link className="header-link" target="_blank" to="https://twitter.com/a_zara_n">{twitterIcon} Twitter</Link> / 
+      <Link className="header-link" target="_blank" to="https://github.com/a-zara-n">{githubIcon} GitHub</Link> / 
+      <Link className="header-link" target="_blank" to="https://app.hackthebox.com/users/208274">{hacktheboxIcon} HackTheBox</Link> / 
+      <Link className="header-link" target="_blank" to="/rss.xml">{rssIcon} RSS</Link>
     </div>
   )
 
