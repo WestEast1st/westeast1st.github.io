@@ -45,7 +45,7 @@ const BlogIndex = ({ data, location }) => {
                       <span itemProp="headline">📝 {title}</span>
                     </Link>
                   </h2>
-                  <small>tags: {post.frontmatter.tags.map((tag) => {return (<Link className="taglink" key={tag} to={`/tags/${tag}`} >🏷️ {tag}</Link>)})}</small>
+                  <small>tags: {post.frontmatter.tags.map((tag) => {return (<Link className="taglink" key={tag} to={`/tags/${tag}`} >🏷️ {tag}</Link>)}) || ""}</small>
                 </header>
                 <section>
                   <p

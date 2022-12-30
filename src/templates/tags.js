@@ -9,6 +9,10 @@ import Layout from "../components/layout"
 const Tags = ({ pageContext, data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   
+  data.allMarkdownRemark.group.sort((groupA, groupB) => {
+    return groupB.totalCount - groupA.totalCount
+  })
+
   const tagHeader = `All Tags 🏷️`
   return (
     <Layout location title={siteTitle}>
