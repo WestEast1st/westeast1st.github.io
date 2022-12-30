@@ -49,7 +49,8 @@ const Layout = ({ location, title, children }) => {
       </h1>
       <Link className="header-link" to="/">📝 Posts</Link> / 
       <Link className="header-link" to="/tags/">🏷️ Tags</Link> / 
-      <Link className="header-link" to="/README/">👤 About Me</Link> <br/>
+      <Link className="header-link" to="/README/">👤 About Me</Link> / 
+      <Link className="header-link" to="/contact/">✉️ Contact</Link> <br/>
       <Link className="header-link" target="_blank" to="https://twitter.com/a_zara_n">{twitterIcon} Twitter</Link> / 
       <Link className="header-link" target="_blank" to="https://github.com/a-zara-n">{githubIcon} GitHub</Link> / 
       <Link className="header-link" target="_blank" to="https://app.hackthebox.com/users/208274">{hacktheboxIcon} HackTheBox</Link> / 
@@ -66,7 +67,8 @@ const Layout = ({ location, title, children }) => {
         © 2022 misc.azara.jp All Rights Reserved. | 
         © {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a> | <b><Link to="/privacy">プライバシーポリシー</Link></b>
+        <a href="https://www.gatsbyjs.com">Gatsby</a> <br/>
+        <b><Link to="/privacy">プライバシーポリシー</Link></b>
       </footer>
     </div>
   )
