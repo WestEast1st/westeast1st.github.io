@@ -22,7 +22,7 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">📝 {post.frontmatter.title}</h1>
-          <small>投稿: {post.frontmatter.createDate} / 更新: {post.frontmatter.updateDate || post.frontmatter.createDate}</small><br/>
+          <small>投稿: {post.frontmatter.createDate} / 更新: {post.frontmatter.date || post.frontmatter.createDate}</small><br/>
           <small>Tags: {post.frontmatter.tags.map(tag => {
             return (<Link className="taglink" key={tag} to={`/tags/${tag}`}>🏷️ {tag}</Link>)
           })}</small>
@@ -112,7 +112,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         createDate(formatString: "MMMM DD, YYYY")
-        updateDate(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM DD, YYYY")
         description
         tags
       }
