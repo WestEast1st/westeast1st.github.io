@@ -35,7 +35,7 @@ const TagPosts = ({ pageContext, data }) => {
                         itemType="http://schema.org/Article"
                     >
                         <header>
-                        <small>{node.frontmatter.createDate}</small>
+                        <small>{node.frontmatter.updateDate || node.frontmatter.createDate}</small>
                         <h2>
                             <Link to={slug} itemProp="url">
                             <span itemProp="headline">📝 {title}</span>
@@ -108,6 +108,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             createDate(formatString: "MMMM DD, YYYY")
+            updateDate(formatString: "MMMM DD, YYYY")
             title
             tags
           }
