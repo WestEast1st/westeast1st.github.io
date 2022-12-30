@@ -22,9 +22,9 @@ const Layout = ({ location, title, children }) => {
       <Link className="header-link" to="/">Posts</Link> / 
       <Link className="header-link" to="/tags/">Tags</Link> / 
       <Link className="header-link" to="/README/">About Me</Link> / 
-      <Link className="header-link" to="https://twitter.com/a_zara_n">Twitter</Link> / 
-      <Link className="header-link" to="https://github.com/a-zara-n">GitHub</Link> / 
-      <Link className="header-link" to="https://app.hackthebox.com/users/208274">HackTheBox</Link>
+      <Link className="header-link" target="_blank" to="https://twitter.com/a_zara_n">Twitter</Link> / 
+      <Link className="header-link" target="_blank" to="https://github.com/a-zara-n">GitHub</Link> / 
+      <Link className="header-link" target="_blank" to="https://app.hackthebox.com/users/208274">HackTheBox</Link>
     </div>
   )
 
