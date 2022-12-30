@@ -6,13 +6,13 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 
 
-const Tags = ({ pageContext, data }) => {
+const TagPosts = ({ pageContext, data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  } tagged with 🏷️ "${tag}"`
   return (
     <Layout location title={siteTitle}>
       <article
@@ -37,7 +37,7 @@ const Tags = ({ pageContext, data }) => {
                         <header>
                         <h2>
                             <Link to={slug} itemProp="url">
-                            <span itemProp="headline">{title}</span>
+                            <span itemProp="headline">📝 {title}</span>
                             </Link>
                         </h2>
                         </header>
@@ -53,14 +53,14 @@ const Tags = ({ pageContext, data }) => {
                     </li>
                 )
             })}
-            <Link to="/">TopPage</Link>
+            <Link to="/">TopPage</Link> / <Link to="/tags">Tags</Link>
         </ol>
       </article>
     </Layout>
   )
 }
 
-Tags.propTypes = {
+TagPosts.propTypes = {
   pageContext: PropTypes.shape({
     tag: PropTypes.string.isRequired,
   }),
@@ -83,7 +83,7 @@ Tags.propTypes = {
   }),
 }
 
-export default Tags
+export default TagPosts
 
 export const pageQuery = graphql`
   query($tag: String) {

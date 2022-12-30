@@ -9,7 +9,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Define the template for blog post
 const blogPost = path.resolve(`./src/templates/blog-post.js`)
-const tagPage = path.resolve(`./src/templates/tag.js`)
+const TagPosts = path.resolve(`./src/templates/tag.js`)
+const Tags = path.resolve(`./src/templates/tags.js`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -69,16 +70,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
-  const tags = result.data.tagsGroup.group
+  const tagposts = result.data.tagsGroup.group
   
-  tags.forEach((tag) => {
+  tagposts.forEach((tag) => {
     createPage({
       path: `/tags/${tag.fieldValue}/`,
-      component: tagPage,
+      component: TagPosts,
       context: {
         tag: tag.fieldValue,
       },
     })
+  })
+
+  const tags = createPage({
+    path: `/tags/`,
+    component: Tags,
+    context: {}
   })
 }
 

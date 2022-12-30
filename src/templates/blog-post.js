@@ -21,10 +21,10 @@ const BlogPostTemplate = ({
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>投稿: {post.frontmatter.createDate}</p>
+          <h1 itemProp="headline">📝 {post.frontmatter.title}</h1>
+          <p>投稿📆: {post.frontmatter.createDate} / 更新📆: {post.frontmatter.updateDate || post.frontmatter.createDate}</p>
           <p>Tags: {post.frontmatter.tags.map(tag => {
-            return (<Link className="taglink" key={tag} to={`/tags/${tag}`}>{tag}</Link>)
+            return (<Link className="taglink" key={tag} to={`/tags/${tag}`}>🏷️ {tag}</Link>)
           })}</p>
         </header>
         <TableOfContents html={post.tableOfContents} />
