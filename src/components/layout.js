@@ -53,7 +53,7 @@ const Layout = ({ location, title, children }) => {
       <Link className="header-link" target="_blank" to="https://twitter.com/a_zara_n">{twitterIcon} Twitter</Link> / 
       <Link className="header-link" target="_blank" to="https://github.com/a-zara-n">{githubIcon} GitHub</Link> / 
       <Link className="header-link" target="_blank" to="https://app.hackthebox.com/users/208274">{hacktheboxIcon} HackTheBox</Link> / 
-      <Link className="header-link" target="_blank" to="/rss.xml">{rssIcon} RSS</Link>
+      <a className="header-link" target="_blank" href="/rss.xml">{rssIcon} RSS</a>
     </div>
   )
 
