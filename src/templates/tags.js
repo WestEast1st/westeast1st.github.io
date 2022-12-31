@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 // Components
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import ArticleIcon from "../components/articleIcon"
 
 
 const Tags = ({ pageContext, data }) => {
@@ -36,7 +37,7 @@ const Tags = ({ pageContext, data }) => {
                     <header>
                     <h2>
                         <Link to={taglink} itemProp="url">
-                        <span itemProp="headline">🏷️ {fieldValue} : {totalCount}</span>
+                        <span itemProp="headline"><ArticleIcon tags={fieldValue}/> {fieldValue} : {totalCount}</span>
                         </Link>
                     </h2>
                     </header>

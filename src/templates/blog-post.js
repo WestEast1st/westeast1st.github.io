@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import TableOfContents from "../components/tableOfContents"
 import Share from "../components/share"
+import ArticleIcon from "../components/articleIcon"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -21,10 +22,10 @@ const BlogPostTemplate = ({
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">📝 {post.frontmatter.title}</h1>
-          <small>投稿: {post.frontmatter.createDate} / 更新: {post.frontmatter.date || post.frontmatter.createDate}</small><br/>
+          <h1 itemProp="headline"><ArticleIcon tags={post.frontmatter.tags}/> {post.frontmatter.title}</h1>
+          <small>投稿 🕒: {post.frontmatter.createDate} / 更新 🕒: {post.frontmatter.date || post.frontmatter.createDate}</small><br/>
           <small>Tags: {post.frontmatter.tags.map(tag => {
-            return (<Link className="taglink" key={tag} to={`/tags/${tag}`}>🏷️ {tag}</Link>)
+            return (<Link className="taglink" key={tag} to={`/tags/${tag}`}><ArticleIcon tags={tag}/> {tag}</Link>)
           })}</small>
         </header>
         <TableOfContents 
