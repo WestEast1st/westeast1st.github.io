@@ -1,6 +1,5 @@
 [submodule "content/blog"]
 	path = content/blog
-	branch = draft
 	url = https://github.com/a-zara-n/Blog-POST.git
 [submodule "content/about"]
 	path = content/about

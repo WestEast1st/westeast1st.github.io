@@ -44,7 +44,7 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "build": "git submodule update --remote && rm content/blog/README.md || gatsby build --prefix-paths",
+    "build": "rm -rf public && git submodule update --remote && rm content/blog/README.md || gatsby build --prefix-paths",
     "deploy": "npm run build && cp CNAME public/CNAME && gh-pages -d public",
     "develop": "git submodule update --remote && rm content/blog/README.md || gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
