@@ -10,8 +10,9 @@
   --maxWidth-2xl: 42rem;
   --maxWidth-3xl: 48rem;
   --maxWidth-4xl: 56rem;
+  --maxWidth-5xl: 64rem;
   --maxWidth-full: "100%";
-  --maxWidth-wrapper: var(--maxWidth-2xl);
+  --maxWidth-wrapper: var(--maxWidth-4xl);
   --spacing-px: "1px";
   --spacing-0: 0;
   --spacing-1: 0.25rem;
@@ -309,6 +310,35 @@ a:focus {
   font-family: var(--font-heading);
 }
 
+.blog-post section li {
+  margin-left: var(--spacing-5);
+}
+
+.letter-content h1 {
+  border-left: 10px solid rgb(0, 0, 0);
+  padding-left: 10px;
+}
+
+.letter-content h2 {
+  border-left: 10px solid rgb(12, 27, 104);
+  padding-left: 10px;
+}
+
+.letter-content h3 {
+  border-left: 10px solid rgb(33, 55, 164);
+  padding-left: 10px;
+}
+
+.letter-content h4 {
+  border-left: 10px solid rgb(128, 145, 229);
+  padding-left: 10px;
+}
+
+.letter-content h5 {
+  border-left: 10px solid rgb(203, 210, 242);
+  padding-left: 10px;
+}
+
 .blog-post-nav ul {
   margin: var(--spacing-0);
 }
@@ -350,12 +380,20 @@ a:focus {
 
 .share {
   text-align: center;
-
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
   &__title {
       font-weight: bold;
       font-size: 18px;
       letter-spacing: 0.25em;
   }
+}
+
+.share__title {
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 0.25em;
+  margin-bottom: var(--spacing-1);
 }
 
 .social-links {
@@ -412,7 +450,24 @@ a:focus {
 }
 
 .tool-icon {
-  margin-right: var(--spacing-1);
+  margin-right: var(--spacing-0);
   margin-bottom: var(--spacing-0);
   width: 20px;
+}
+
+.letter-content p {
+  margin-bottom: var(--spacing-2);
+}
+
+.letter-content li {
+  margin-bottom: var(--spacing-3);
+}
+
+.letter-content a {
+  font-weight: bold;
+}
+
+.social-links__icon {
+  margin-left: var(--spacing-2);
+  margin-right: var(--spacing-2);
 }

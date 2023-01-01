@@ -18,11 +18,10 @@ const Layout = ({ location, title, children }) => {
       </h1>
       <Link className="header-link" to="/">📝 All</Link> / 
       <Link className="header-link" to="/tags/diary">📔 diary</Link> / 
-      <Link className="header-link" to="/tags/post">📖 Posts</Link> / 
       <Link className="header-link" to="/tags/Letter">✉️ Letter</Link> / 
       <Link className="header-link" to="/tags/">🏷️ Tags</Link> / 
       <Link className="header-link" to="/README/">👤 About Me</Link> / 
-      <Link className="header-link" to="/contact/">✉️ Contact</Link> <br/>
+      <Link className="header-link" to="/contact/">✉️ Contact</Link> /
       <Link className="header-link" target="_blank" to="https://twitter.com/a_zara_n">{twitterIcon} Twitter</Link> / 
       <Link className="header-link" target="_blank" to="https://github.com/a-zara-n">{githubIcon} GitHub</Link> / 
       <Link className="header-link" target="_blank" to="https://app.hackthebox.com/users/208274">{hacktheboxIcon} HackTheBox</Link> / 

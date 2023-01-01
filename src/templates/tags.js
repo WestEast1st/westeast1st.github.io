@@ -24,25 +24,20 @@ const Tags = ({ pageContext, data }) => {
           <h1 itemProp="headline">{tagHeader}</h1>
         </header>
         <ol style={{ listStyle: `none` }}>
+          <article>
             {data.allMarkdownRemark.group.map(({ fieldValue, totalCount }) => {
               const taglink = `/tags/${fieldValue}/`
-              return (<li key={fieldValue}>
-                <article
-                    className="post-list-item"
-                    itemScope
-                    itemType="http://schema.org/Article"
-                >
-                    <header>
-                    <h2>
-                        <Link to={taglink} itemProp="url">
-                        <span itemProp="headline"><ArticleIcon tags={fieldValue}/> {fieldValue} : {totalCount}</span>
+              return (
+                <span className="post-list-item" itemScope>
+                        <Link className="taglink" key={fieldValue}  to={taglink} itemProp="url">
+                         <span itemProp="headline"><ArticleIcon tags={fieldValue}/> {fieldValue}</span>
                         </Link>
-                    </h2>
-                    </header>
-                </article>
-                </li>)
+                </span>
+              )
             })}
-            <Link className="blog-link" to="/">📝 TopPage</Link>
+          </article>
+          <br/>
+          <Link className="blog-link" to="/">📝 TopPage</Link>
         </ol>
       </article>
     </Layout>
