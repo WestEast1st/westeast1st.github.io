@@ -15,6 +15,7 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <Article 
+        className="article"
         title={post.frontmatter.title}
         date={post.frontmatter.date}
         createDate={post.frontmatter.createDate}

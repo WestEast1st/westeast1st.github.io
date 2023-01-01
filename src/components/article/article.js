@@ -5,10 +5,10 @@ import ArticleFooter from "./articleFooter"
 import ArticleContent from "./articleContent"
 import TableOfContents from "./tableOfContents"
 
-const Article = ({ title, date, createDate, tags, tableOfContents,  content, url, excerpt }) => {
+const Article = ({ title, date, createDate, tags, tableOfContents,  content, url, excerpt, className }) => {
     return (
         <article
-            className="blog-post"
+            className={className ? `blog-post ${className}` : "blog-post"}
             itemScope
             itemType="http://schema.org/Article"
         >
@@ -18,10 +18,13 @@ const Article = ({ title, date, createDate, tags, tableOfContents,  content, url
                 createDate={createDate}
                 tags={tags}
             />
-            <TableOfContents 
-                html={tableOfContents} 
-            />
-            <ArticleContent content={content} />
+            {
+                !tags.includes("letter") ? <br /> : <TableOfContents 
+                    html={tableOfContents} 
+                />
+            }
+            
+            <ArticleContent className={!tags.includes("letter") ? "letter-content" : "blog-content"} content={content} />
             <hr />
             <ArticleFooter
                 tags={tags}
