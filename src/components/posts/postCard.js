@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import ArticleIcon from "./articleIcon"
-
+import ArticleIcon from "../common/articleIcon"
+import PostTag from "../common/postTag"
 const PostCard = ({post, title}) => {
     return (
         <article
@@ -19,9 +19,7 @@ const PostCard = ({post, title}) => {
                 <small>tags: {
                     post.frontmatter.tags.map((tag) => {
                         return (
-                            <Link className="taglink" key={tag} to={`/tags/${tag}`} >
-                                    <ArticleIcon tags={tag}/> {tag}
-                            </Link>
+                            <PostTag key={tag} postTagName={tag} />
                         )
                     }) || ""
                 }

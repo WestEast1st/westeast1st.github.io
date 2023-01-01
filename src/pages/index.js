@@ -1,11 +1,11 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Tags from "../components/tags"
-import BlogPosts from "../components/blogPosts"
+import Bio from "../components/common/bio"
+import Layout from "../components/common/layout"
+import Seo from "../components/common/seo"
+import Tags from "../components/posts/tags"
+import BlogPosts from "../components/posts/blogPosts"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`

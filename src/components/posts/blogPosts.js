@@ -1,12 +1,11 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import PostCard from "../components/postCard"
+import PostCard from "./postCard"
 
 const BlogPosts = ({posts}) => {
     return (
         <ol style={{ listStyle: `none` }}>
             {posts.map(post => {
-            if (post.frontmatter.title === "About Me") return
+            if (post.frontmatter.title === "About Me") return null
             const title = post.frontmatter.title || post.fields.slug
 
             return (

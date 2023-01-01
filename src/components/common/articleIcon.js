@@ -10,14 +10,23 @@ const ArticleIcon = ({tags}) => {
         tags = tags.map((tag) => {
             return tag.toLowerCase()
         })
+        if (tags.includes("Letter".toLowerCase())) return "✉️"
         if (tags.includes("linux".toLowerCase())) return "🐧"
         if (tags.includes("windows".toLowerCase())) return "🪟"
+        if (tags.includes("microsoft".toLowerCase())) return "🪟"
         if (tags.includes("macos".toLowerCase())) return "🍎"
         if (tags.includes("android".toLowerCase())) return "🤖"
         if (tags.includes("ios".toLowerCase())) return "📱"
         if (tags.includes("web".toLowerCase())) return "🌐"
         if (tags.includes("network".toLowerCase())) return "🌐"
+        if (tags.includes("cloud".toLowerCase())) return "☁️"
+        if (tags.includes("aws".toLowerCase())) return "☁️"
+        if (tags.includes("gcp".toLowerCase())) return "☁️"
+        if (tags.includes("azure".toLowerCase())) return "☁️"
         if (tags.includes("programming".toLowerCase())) return "👨‍💻"
+        if (tags.includes("develop".toLowerCase())) return "⚙️"
+        if (tags.includes("operation".toLowerCase())) return "⚙️"
+        if (tags.includes("bughunt".toLowerCase())) return "🐝"
         if (tags.includes("security".toLowerCase())) return "🔐"
         if (tags.includes("hacking".toLowerCase())) return "🔐"
         if (tags.includes("ctf".toLowerCase())) return "🚩"

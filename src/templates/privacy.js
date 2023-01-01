@@ -1,9 +1,8 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 // Components
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
+import { graphql } from "gatsby"
+import Layout from "../components/common/layout"
 
 
 const Privacy = ({ pageContext, data }) => {

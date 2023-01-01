@@ -2,52 +2,24 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
+
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
-
-  const twitterIcon = (<StaticImage
-    className="tool-icon"
-    formats={["auto", "webp", "avif"]}
-    src="../images/twitter.png"
-    alt="Profile picture"
-  />)
-
-  const githubIcon = (<StaticImage
-    className="tool-icon"
-    formats={["auto", "webp", "avif"]}
-    src="../images/github.png"
-    alt="Profile picture"
-  />)
-
-  const hacktheboxIcon = (<StaticImage
-    className="tool-icon"
-    formats={["auto", "webp", "avif"]}
-    src="../images/hackthebox.png"
-    alt="Profile picture"
-  />)
-
-  const rssIcon = (<StaticImage
-    className="tool-icon"
-    formats={["auto", "webp", "avif"]}
-    src="../images/rss.png"
-    alt="Profile picture"
-  />)
-  header = (
+  const twitterIcon = (<StaticImage className="tool-icon" formats={["auto", "webp", "avif"]} src="../../images/twitter.png" alt="Twitter Icon" />)
+  const githubIcon = (<StaticImage className="tool-icon" formats={["auto", "webp", "avif"]} src="../../images/github.png" alt="github icon"/>)
+  const hacktheboxIcon = (<StaticImage className="tool-icon" formats={["auto", "webp", "avif"]} src="../../images/hackthebox.png" alt="hackthebox icon"/>)
+  const rssIcon = (<StaticImage className="tool-icon" formats={["auto", "webp", "avif"]} src="../../images/rss.png" alt="rss icon" />)
+  const ProfileIcon = (<StaticImage className="title-avatar" formats={["auto", "webp", "avif"]} src="../../images/profile-pic.jpeg" width={50} height={50} quality={95} alt="Profile picture" />)
+  const header = (
     <div>
       <h1 className="main-heading">
-       <Link to="/">{title}<StaticImage
-        className="title-avatar"
-        formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.jpeg"
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      /></Link>
+       <Link to="/">{title}{ProfileIcon}</Link>
       </h1>
-      <Link className="header-link" to="/">📝 Posts</Link> / 
+      <Link className="header-link" to="/">📝 All</Link> / 
+      <Link className="header-link" to="/tags/diary">📔 diary</Link> / 
+      <Link className="header-link" to="/tags/post">📖 Posts</Link> / 
+      <Link className="header-link" to="/tags/Letter">✉️ Letter</Link> / 
       <Link className="header-link" to="/tags/">🏷️ Tags</Link> / 
       <Link className="header-link" to="/README/">👤 About Me</Link> / 
       <Link className="header-link" to="/contact/">✉️ Contact</Link> <br/>

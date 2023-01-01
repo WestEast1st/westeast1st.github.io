@@ -1,12 +1,10 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import TableOfContents from "../components/tableOfContents"
-import Share from "../components/share"
-import ArticleIcon from "../components/articleIcon"
+import Article from "../components/article/article"
+import Seo from "../components/common/seo"
+import Layout from "../components/common/layout"
+import ArticleNavigation from "../components/article/articleNavigation"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -16,64 +14,20 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} title={siteTitle}>
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header>
-          <h1 itemProp="headline"><ArticleIcon tags={post.frontmatter.tags}/> {post.frontmatter.title}</h1>
-          <small>投稿 🕒: {post.frontmatter.createDate} / 更新 🕒: {post.frontmatter.date || post.frontmatter.createDate}</small><br/>
-          <small>Tags: {post.frontmatter.tags.map(tag => {
-            return (<Link className="taglink" key={tag} to={`/tags/${tag}`}><ArticleIcon tags={tag}/> {tag}</Link>)
-          })}</small>
-        </header>
-        <TableOfContents 
-          html={post.tableOfContents} 
-        />
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        <hr />
-        <footer>
-          <small>Tags: {post.frontmatter.tags.map(tag => {
-            return (<Link className="taglink" key={tag} to={`/tags/${tag}`}>🏷️ {tag}</Link>)
-          })}</small>
-          <Share 
-            title={post.frontmatter.title}
-            url={`${location.origin}${post.fields.slug}`}
-            description={`${post.excerpt.slice(0, 70)}…`}
-           />
-          <Bio />
-        </footer>
-      </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link className="prev-link" to={previous.fields.slug} rel="prev">
-                ⬅️ {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link className="next-link" to={next.fields.slug} rel="next">
-                {next.frontmatter.title} ➡️
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      <Article 
+        title={post.frontmatter.title}
+        date={post.frontmatter.date}
+        createDate={post.frontmatter.createDate}
+        tags={post.frontmatter.tags}
+        tableOfContents={post.tableOfContents}
+        content={post.html}
+        url={`${location.origin}${post.fields.slug}`}
+        excerpt={post.excerpt}
+      />
+      <ArticleNavigation 
+        prev={previous}
+        next={next}
+      />
     </Layout>
   )
 }

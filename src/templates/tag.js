@@ -1,12 +1,10 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 // Components
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import PostCard from "../components/postCard"
-import BlogPosts from "../components/blogPosts"
-import ArticleIcon from "../components/articleIcon"
+import Layout from "../components/common/layout"
+import BlogPosts from "../components/posts/blogPosts"
+import ArticleIcon from "../components/common/articleIcon"
 
 const TagPosts = ({ pageContext, data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`

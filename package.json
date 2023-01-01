@@ -46,7 +46,7 @@
   "scripts": {
     "build": "git submodule update --remote && rm content/blog/README.md || gatsby build --prefix-paths",
     "deploy": "npm run build && cp CNAME public/CNAME && gh-pages -d public",
-    "develop": "gatsby develop",
+    "develop": "git submodule update --remote && rm content/blog/README.md || gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
